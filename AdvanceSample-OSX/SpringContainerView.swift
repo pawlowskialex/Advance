@@ -40,7 +40,7 @@ final class SpringContainerView : NSView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         wantsLayer = true
-        layer?.backgroundColor = NSColor.whiteColor().CGColor
+        layer?.backgroundColor = NSColor.white().cgColor
         layer?.delegate = self
         
         addSubview(springView)
@@ -53,7 +53,7 @@ final class SpringContainerView : NSView {
         dampingSlider.doubleValue = springView.centerSpring.configuration.damping
     }
     
-    override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(_ theEvent: NSEvent) {
         var point = theEvent.locationInWindow
         point.x -= (springView.bounds.width / 2.0)
         point.y -= (springView.bounds.height / 2.0)
