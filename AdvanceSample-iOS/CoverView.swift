@@ -42,18 +42,18 @@ final class CoverView: UIView {
     
     override init(frame: CGRect) {
         logoView = UIImageView(image: UIImage(named: "logo"))
-        logoView.tintColor = UIColor.whiteColor()
+        logoView.tintColor = UIColor.white()
         logoView.sizeToFit()
         
         urlLabel = UILabel(frame: CGRect.zero)
         
         var attribs: [String: AnyObject] = [:]
-        attribs[NSFontAttributeName] = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
-        attribs[NSForegroundColorAttributeName] = UIColor.whiteColor()
+        attribs[NSFontAttributeName] = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightRegular)
+        attribs[NSForegroundColorAttributeName] = UIColor.white()
         
         // attribs[NSUnderlineStyleAttributeName] = NSUnderlineStyle.StyleSingle.rawValue
         
-        urlLabel.attributedText = NSAttributedString(string: "github.com/storehouse/Advance", attributes: attribs)
+        urlLabel.attributedText = AttributedString(string: "github.com/storehouse/Advance", attributes: attribs)
         urlLabel.sizeToFit()
         
         super.init(frame: frame)

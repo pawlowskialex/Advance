@@ -61,7 +61,7 @@ public struct AnyValueAnimation<Value: VectorConvertible>: ValueAnimationType {
     /// Advances the animation.
     ///
     /// - parameter elapsed: The time (in seconds) to advance the animation.
-    public mutating func advance(time: Double) {
+    public mutating func advance(_ time: Double) {
         self = advanceFunction(time)
     }
 }

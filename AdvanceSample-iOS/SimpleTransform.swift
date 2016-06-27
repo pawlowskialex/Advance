@@ -42,9 +42,9 @@ struct SimpleTransform {
     }
     
     var affineTransform: CGAffineTransform {
-        var t = CGAffineTransformIdentity
-        t = CGAffineTransformRotate(t, rotation)
-        t = CGAffineTransformScale(t, scale, scale)
+        var t = CGAffineTransform.identity
+        t = t.rotate(rotation)
+        t = t.scaleBy(x: scale, y: scale)
         return t
     }
 }

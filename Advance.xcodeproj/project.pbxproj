@@ -978,12 +978,15 @@
 					};
 					22F74AA41C7674BB004C6E4C = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					5D39CEE01C6E983100DFCF86 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					5D39CEEA1C6E983100DFCF86 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 22F74AA41C7674BB004C6E4C;
 					};
 					5D3A2F301C9209EE0071F08F = {
@@ -1501,6 +1504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.storehouse.AdvanceSample;
 				PRODUCT_NAME = AdvanceSample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1516,6 +1520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.storehouse.AdvanceSample;
 				PRODUCT_NAME = AdvanceSample;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1626,6 +1631,7 @@
 				PRODUCT_NAME = Advance;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1648,6 +1654,7 @@
 				PRODUCT_NAME = Advance;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1661,6 +1668,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.storehouse.Advance;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Tests";
 				PRODUCT_NAME = Advance;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdvanceSample.app/AdvanceSample";
 			};
 			name = Debug;
@@ -1674,6 +1682,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.storehouse.Advance;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Tests";
 				PRODUCT_NAME = Advance;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdvanceSample.app/AdvanceSample";
 			};
 			name = Release;
@@ -1812,6 +1821,7 @@
 				PRODUCT_NAME = Advance;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
@@ -1870,6 +1880,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.storehouse.Advance;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)Tests";
 				PRODUCT_NAME = Advance;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdvanceSample.app/AdvanceSample";
 			};
 			name = Distribution;
@@ -1915,6 +1926,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.storehouse.AdvanceSample;
 				PRODUCT_NAME = AdvanceSample;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Distribution;
 		};

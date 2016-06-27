@@ -64,13 +64,13 @@ public final class Loop {
         return LoopSubscription(loop: self)
     }
     
-    private func add(subscription: LoopSubscription) {
+    private func add(_ subscription: LoopSubscription) {
         assert(subscription.loop === self)
         tokens.insert(subscription.token)
         startIfNeeded()
     }
     
-    private func remove(subscription: LoopSubscription) {
+    private func remove(_ subscription: LoopSubscription) {
         assert(subscription.loop === self)
         tokens.remove(subscription.token)
         stopIfPossible()
@@ -89,7 +89,7 @@ public final class Loop {
         displayLink.paused = true
     }
     
-    private func displayLinkDidFire(frame: DisplayLink.Frame) {
+    private func displayLinkDidFire(_ frame: DisplayLink.Frame) {
         
         let timestamp = max(frame.timestamp, currentAnimationTime)
         
@@ -124,7 +124,7 @@ public final class LoopSubscription {
             self.subscription = subscription
         }
         var hashValue: Int {
-            return unsafeAddressOf(self).hashValue
+            return unsafeAddress(of: self).hashValue
         }
     }
     
@@ -160,7 +160,7 @@ public final class LoopSubscription {
         paused = true
     }
     
-    private func advance(elapsed: Double) {
+    private func advance(_ elapsed: Double) {
         advanced.fire(elapsed)
     }
 }

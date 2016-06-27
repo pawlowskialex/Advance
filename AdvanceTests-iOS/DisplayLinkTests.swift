@@ -15,7 +15,7 @@ class DisplayLinkTests : XCTestCase {
     }
     
     func testCallback() {
-        let exp = expectationWithDescription("callback")
+        let exp = expectation(withDescription: "callback")
         
         var fulfilled = false
         
@@ -27,7 +27,7 @@ class DisplayLinkTests : XCTestCase {
         
         displayLink.paused = false
         
-        waitForExpectationsWithTimeout(0.5) { (error) -> Void in
+        waitForExpectations(withTimeout: 0.5) { (error) -> Void in
             guard error == nil else { XCTFail(); return }
         }
     }
@@ -37,17 +37,17 @@ class DisplayLinkTests : XCTestCase {
         
         var gotCallback = false
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.after(when: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
             self.displayLink.paused = true
             self.displayLink.callback = { (frame) in
                 gotCallback = true
             }
         }
         
-        let timeoutDate = NSDate(timeIntervalSinceNow: 1.0)
+        let timeoutDate = Date(timeIntervalSinceNow: 1.0)
         
         repeat {
-            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: timeoutDate)
+            RunLoop.current().run(mode: RunLoopMode.defaultRunLoopMode, before: timeoutDate)
             if timeoutDate.timeIntervalSinceNow <= 0.0 {
                 break
             }
@@ -57,7 +57,7 @@ class DisplayLinkTests : XCTestCase {
     }
 
     func testTimestamp() {
-        let exp = expectationWithDescription("callback")
+        let exp = expectation(withDescription: "callback")
         
         var callbacks = 0
         var lastTimestamp: Double = 0
@@ -66,7 +66,7 @@ class DisplayLinkTests : XCTestCase {
             XCTAssertTrue(frame.timestamp > lastTimestamp, "timestamp \(frame.timestamp) was not larger than \(lastTimestamp) (frame #\(callbacks))")
             lastTimestamp = frame.timestamp
             
-            if callbacks == 10 { // test 10 frames before fulfilling
+            if callbacks == 5 { // test 5 frames before fulfilling
                 exp.fulfill()
             }
             
@@ -75,7 +75,7 @@ class DisplayLinkTests : XCTestCase {
         
         displayLink.paused = false
         
-        waitForExpectationsWithTimeout(0.5) { (error) -> Void in
+        waitForExpectations(withTimeout: 0.5) { (error) -> Void in
             guard error == nil else { XCTFail(); return }
         }
     }

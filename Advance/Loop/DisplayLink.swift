@@ -62,10 +62,10 @@ internal final class DisplayLink {
     /// If the display link is paused or not.
     var paused: Bool {
         get {
-            return displayLink.paused
+            return displayLink.isPaused
         }
         set {
-            displayLink.paused = newValue
+            displayLink.isPaused = newValue
         }
     }
     
@@ -78,8 +78,8 @@ internal final class DisplayLink {
     /// Creates a new paused DisplayLink instance.
     init() {
         displayLink = CADisplayLink(target: target, selector: #selector(DisplayLinkTarget.frame(_:)))
-        displayLink.paused = true
-        displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSRunLoopCommonModes)
+        displayLink.isPaused = true
+        displayLink.add(to: RunLoop.main(), forMode: RunLoopMode.commonModes.rawValue)
         
         target.callback = { [unowned self] (frame) in
             self.callback?(frame: frame)
@@ -97,7 +97,7 @@ internal final class DisplayLink {
         var callback: ((frame: DisplayLink.Frame) -> Void)? = nil
         
         /// Called for each frame from the CADisplayLink.
-        dynamic func frame(displayLink: CADisplayLink) {
+        dynamic func frame(_ displayLink: CADisplayLink) {
             callback?(frame: Frame(timestamp: displayLink.timestamp, duration: displayLink.duration))
         }
     }
